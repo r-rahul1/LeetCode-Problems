@@ -1,4 +1,3 @@
-# LeetCode
-# Python solutions
-# practice
+# LeetCode Python solutions
+
 Collection of python answers for LeetCode questions
