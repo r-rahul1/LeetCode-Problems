@@ -5,12 +5,13 @@ class Solution:
         while fp != sp or fp == 0:
             fp = nums[nums[fp]]
             sp = nums[sp]
-        t = sp
+
         fp = 0
-        while t != fp:
-            t = nums[t]
+        while sp != fp:
+            sp = nums[sp]
             fp = nums[fp]
         return fp
+    
         '''
         def swap(arr,first,second):
             arr[first],arr[second]=arr[second],arr[first]
