@@ -7,7 +7,8 @@
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         #BFS:
-        '''
+        if not root:
+            return 0
         q = deque()
         q.append(root)
         l = 0
@@ -21,10 +22,10 @@ class Solution:
                     q.append(t.left)
             
         return l
-        '''
+        
         
         # DFS:
-        if not root:
-            return 0
-        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+        #if not root:
+        #    return 0
+        #return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
         
