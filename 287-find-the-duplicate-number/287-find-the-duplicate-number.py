@@ -1,5 +1,16 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
+        #linked-list-Floyd's Cycle Detection
+        fp = sp = 0
+        while fp != sp or fp == 0:
+            fp = nums[nums[fp]]
+            sp = nums[sp]
+        t = sp
+        fp = 0
+        while t != fp:
+            t = nums[t]
+            fp = nums[fp]
+        return fp
         '''
         def swap(arr,first,second):
             arr[first],arr[second]=arr[second],arr[first]
@@ -13,6 +24,8 @@ class Solution:
             else:
                 i += 1
           '''   
+        #binary search
+        '''
         low, high = 1,len(nums)-1
         
         while low <= high:
@@ -25,3 +38,5 @@ class Solution:
             else:
                 low = cur + 1
         return dup
+        '''
+        
