@@ -2,7 +2,6 @@ class NumArray:
 
     def __init__(self, nums: List[int]):
         self.s = [nums[0]]
-        self.nums = nums
         for i in range(1,len(nums)):
             self.s.append(self.s[-1]+nums[i])
 
