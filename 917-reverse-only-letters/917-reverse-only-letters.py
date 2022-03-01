@@ -11,8 +11,8 @@ class Solution:
                 res[right] = s[right]
                 right -= 1
             if left <= right:
-                res[left] = str(s[right])
-                res[right] = str(s[left])
+                res[left] = s[right]
+                res[right] = s[left]
             
             left += 1
             right -= 1
