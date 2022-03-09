@@ -8,6 +8,28 @@ class Solution:
         if not head:
             return 
         
+        thead = head
+        prev = None
+        
+        while head and head.next:
+            
+            if head.val == head.next.val:
+                node = head.next
+                while node and head.val == node.val:
+                    node = node.next
+                if prev:
+                    prev.next = node
+                else:
+                    thead = node
+                head = node
+                
+            else:
+                prev = head
+                head = head.next
+                
+        return thead
+    
+        '''
         prev,curr,tnext = None,head,head.next
         res = ListNode()
         rhead = res
@@ -36,3 +58,4 @@ class Solution:
         
         res.next = None
         return rhead.next
+        '''
