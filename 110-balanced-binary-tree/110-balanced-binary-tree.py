@@ -9,7 +9,7 @@ class Solution:
         self.ans = True
         
         def fun(root):
-            if not root:
+            if not root or not self.ans:
                 return 0
             left = fun(root.left)
             right = fun(root.right)
