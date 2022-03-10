@@ -10,16 +10,13 @@ class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         dic = {}
         
-        def dfs(node):
-            if node in dic:
-                return dic[node]
-            
-            temp = Node(node.val)
-            dic[node] = temp
-            
-            for neigh in node.neighbors:
+        def dfs(root):
+            if root in dic:
+                return dic[root]
+            temp = Node(root.val)
+            dic[root] = temp
+            for neigh in root.neighbors:
                 temp.neighbors.append(dfs(neigh))
-            
             return temp
-        
+    
         return dfs(node) if node else None
