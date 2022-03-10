@@ -7,6 +7,16 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        cur = root
+        while cur:
+            if q.val > cur.val and p.val > cur.val:
+                cur = cur.right
+            elif q.val < cur.val and p.val < cur.val:
+                cur = cur.left
+            else:
+                return cur
+        '''
         def fun(node):
             if q.val > node.val and p.val > node.val:
                 return fun(node.right)
@@ -15,3 +25,4 @@ class Solution:
             else:
                 return node
         return fun(root)
+        '''
