@@ -11,6 +11,28 @@ class Node:
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if not root:
+            return 
+        
+        head = root
+        
+        while head:
+            curr = temp = Node(0)
+        
+            while head:
+                if head.left:
+                    curr.next = head.left
+                    curr = curr.next
+                if head.right:
+                    curr.next = head.right
+                    curr = curr.next
+                head = head.next
+        
+            head = temp.next
+        
+        return root
+        
+        '''
+        if not root:
             return
     
         q = deque([root])
@@ -27,3 +49,4 @@ class Solution:
                 if item.right:
                     q.append(item.right)
         return root
+        '''
