@@ -6,8 +6,6 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
         self.ans = True
         
         def fun(root):
