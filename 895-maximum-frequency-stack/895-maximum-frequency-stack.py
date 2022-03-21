@@ -3,21 +3,24 @@ class FreqStack:
 
     def __init__(self):
         self.dic = {}
-        self.heap = []
-        self.index = 0
+        self.nums = {}
+        self.m = 0
         
     def push(self, val: int) -> None:
-        if val not in self.dic:
-            self.dic[val] = 0
-        self.dic[val] += 1
-        self.index += 1
-        heappush(self.heap,(-self.dic[val],-self.index,val))
-
+        if val not in self.nums:
+            self.nums[val] = 0
+        self.nums[val] += 1
+        self.m = max(self.m,self.nums[val])
+        if self.nums[val] not in self.dic:
+            self.dic[self.nums[val]] = []
+        self.dic[self.nums[val]].append(val)
+        
     def pop(self) -> int:
-        num = heappop(self.heap)[2]
-        self.dic[num] -= 1
-        if self.dic[num] == 0:
-            del self.dic[num]
+        num = self.dic[self.m].pop()
+        self.nums[num] -= 1
+        if not self.dic[self.m]:
+            del self.dic[self.m]
+            self.m -= 1
         return num
 
 
